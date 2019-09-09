@@ -3,11 +3,9 @@ package com.zaytsevp.mybatisexample.api;
 import com.zaytsevp.mybatisexample.model.Auto;
 import com.zaytsevp.mybatisexample.service.auto.AutoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -25,5 +23,15 @@ public class AutoController {
     @GetMapping("/{id}")
     public Auto getById(@PathVariable("id") UUID id) {
         return autoService.getById(id);
+    }
+
+    @GetMapping("/all")
+    public List<Auto> getAll() {
+        return autoService.getAll();
+    }
+
+    @PostMapping("delete/{id}")
+    public void deleteById(@PathVariable("id") UUID id) {
+        autoService.deleteById(id);
     }
 }

@@ -1,7 +1,8 @@
 package com.zaytsevp.mybatisexample.config;
 
-import com.zaytsevp.mybatisexample.service.auto.AutoMapper;
+import com.zaytsevp.mybatisexample.mapper.auto.AutoMapper;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.annotation.MapperScan;
 import org.mybatis.spring.mapper.MapperFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * Created by Pavel Zaytsev
  */
 @Configuration
+@MapperScan("com.zaytsevp.mybatisexample.mapper.*")
 public class MapperConfig {
 
     @Autowired

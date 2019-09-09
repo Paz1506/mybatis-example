@@ -11,6 +11,7 @@ import java.util.UUID;
 
 /**
  * Handler for correct conversion VARCHAR database type -> UUID java type.
+ * https://github.com/mybatis/mybatis-3/blob/master/src/test/java/org/apache/ibatis/submitted/uuid_test/UUIDTypeHandler.java
  *
  * Created by Pavel Zaytsev
  */
