@@ -1,3 +1,5 @@
+drop table if exists auto;
+
 create table if not exists auto
 (
   id    varchar(36),

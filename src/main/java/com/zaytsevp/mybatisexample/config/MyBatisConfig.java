@@ -15,16 +15,16 @@ import javax.sql.DataSource;
 @Configuration
 public class MyBatisConfig {
 
-    @Value("${spring.datasource.hikari.username}")
+    @Value("${spring.datasource.username}")
     private String username;
 
-    @Value("${spring.datasource.hikari.password}")
+    @Value("${spring.datasource.password}")
     private String password;
 
-    @Value("${spring.datasource.hikari.jdbc-url}")
+    @Value("${spring.datasource.url}")
     private String url;
 
-    @Value("${spring.datasource.hikari.driver-class-name}")
+    @Value("${spring.datasource.driver-class-name}")
     private String driver;
 
     @Bean
@@ -36,6 +36,7 @@ public class MyBatisConfig {
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(dataSource());
+
         return factoryBean.getObject();
     }
 }
