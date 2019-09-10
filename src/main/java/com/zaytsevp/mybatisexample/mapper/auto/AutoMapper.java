@@ -20,6 +20,9 @@ public interface AutoMapper {
     Auto getById(@Param("id") String id);
 
     @Select("SELECT * FROM AUTO")
+    @Results({
+                     @Result(column = "id", property = "id", jdbcType = JdbcType.VARCHAR, javaType = UUID.class, typeHandler = UUIDTypeHandler.class)
+             })
     List<Auto> getAll();
 
     @Delete("DELETE FROM AUTO WHERE id = #{id}")

@@ -1,6 +1,7 @@
 package com.zaytsevp.mybatisexample.config;
 
 import com.zaytsevp.mybatisexample.mapper.auto.AutoMapper;
+import com.zaytsevp.mybatisexample.mapper.auto.ModelMapper;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.annotation.MapperScan;
 import org.mybatis.spring.mapper.MapperFactoryBean;
@@ -25,5 +26,14 @@ public class MapperConfig {
         autoMapperFactoryBean.setMapperInterface(AutoMapper.class);
 
         return autoMapperFactoryBean;
+    }
+
+    @Bean
+    public MapperFactoryBean modelMapper() {
+        MapperFactoryBean<ModelMapper> modelMapperFactoryBean = new MapperFactoryBean<>();
+        modelMapperFactoryBean.setSqlSessionFactory(sqlSessionFactory);
+        modelMapperFactoryBean.setMapperInterface(ModelMapper.class);
+
+        return modelMapperFactoryBean;
     }
 }
